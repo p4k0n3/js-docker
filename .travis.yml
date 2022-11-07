@@ -1,0 +1,9 @@
+sudo: required
+sevices:
+ - docker
+
+before_install:
+ - docker build -t p4k0ne/js-docker -f dockerfile.dev .
+
+script:
+ - docker run p4k0ne/js-docker npm run test -- --coverage
